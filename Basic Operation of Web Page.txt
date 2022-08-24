@@ -1,0 +1,59 @@
+#Question 1: Basic Operation of Web Page
+
+package basicPhase;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Basic_Operation_Web_page {
+	
+public static void main(String[] args) throws InterruptedException {
+		
+		// Webdrivermanager set up for chrome browser
+		
+				WebDriverManager.chromedriver().setup(); 
+				
+						// Webdriver object set for chrome browser
+				WebDriver driver=new ChromeDriver(); 
+				
+				
+				 
+						 
+						// url visit 
+				driver.get("https://www.demoblaze.com/index.html");
+		
+		//1. Page title Capture
+		System.out.println("Page Title is: "+driver.getTitle());
+		
+		//2. Current URL Capture
+		System.out.println("Current url is: "+driver.getCurrentUrl());
+		
+	
+		 
+		
+				//3. Navigate to another URL & Refresh button
+				driver.navigate().to("https://opensource-demo.orangehrmlive.com/");
+				Thread.sleep(5000);
+				driver.navigate().refresh();
+				
+			
+				
+				//4. Open a new tab & close the existing tab
+				driver.switchTo().newWindow(WindowType.TAB).navigate().to("https://www.aftercareexplained.com/");
+				Thread.sleep(5000);
+				driver.navigate().refresh();
+				driver.switchTo().newWindow(WindowType.TAB).navigate().to("https://www.chhoto.link/");
+				driver.close();
+				
+				//5. Close all the window tab
+				driver.quit();
+			
+				
+	}
+
+
+}
